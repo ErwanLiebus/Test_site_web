@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Micro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="mic">
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <header>
+        <h1>CYBERPUNK HARDWARE TESTER</h1>
+        <p>Test Micro</p>
+    </header>
+
+    <main>
+        <h2>Micro</h2>
+        <p class="instruction">
+            Autorise l'accès au micro puis parle ou tape sur le téléphone pour voir le niveau sonore bouger.
+        </p>
+        <div class="card">
+            <h3>Niveau sonore</h3>
+            <div class="vu-container">
+                <div class="vu-bar" id="mic-vu"></div>
+            </div>
+            <p>Niveau: <span id="mic-level">0</span></p>
+        </div>
+        <p id="mic-status" class="status">
+            En attente de signal micro…
+        </p>
+        <div class="actions">
+            <button class="btn-primary" id="btn-mic-start">Activer le micro</button>
+            <button class="btn-yes" id="btn-mic-ok">Oui, le micro fonctionne</button>
+            <button class="btn-no" id="btn-mic-ko">Non, problème détecté</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>CYBER DECK DIAG v1.0 — HTML | CSS | JS</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

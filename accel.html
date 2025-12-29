@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Accéléromètre</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="accel">
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <header>
+        <h1>CYBERPUNK HARDWARE TESTER</h1>
+        <p>Test Accéléromètre</p>
+    </header>
+
+    <main>
+        <h2>Accéléromètre</h2>
+        <p class="instruction">
+            Secoue l'appareil de manière nette quand tu es prêt.
+        </p>
+        <div class="card small">
+            <h3>Valeurs brutes</h3>
+            <p>X: <span id="acc-x">0</span></p>
+            <p>Y: <span id="acc-y">0</span></p>
+            <p>Z: <span id="acc-z">0</span></p>
+            <p>Force: <span id="acc-force">0</span> g (approx)</p>
+        </div>
+        <p id="accel-status" class="status">
+            En attente de secousse significative…
+        </p>
+        <div class="actions">
+            <button class="btn-primary" id="btn-accel-retry">Relancer le test</button>
+            <button class="btn-yes" id="btn-accel-ok">Oui, l'accéléromètre fonctionne</button>
+            <button class="btn-no" id="btn-accel-ko">Non, problème détecté</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>CYBER DECK DIAG v1.0 — HTML | CSS | JS</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

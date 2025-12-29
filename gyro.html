@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Gyroscope</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="gyro">
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <header>
+        <h1>CYBERPUNK HARDWARE TESTER</h1>
+        <p>Test Gyroscope</p>
+    </header>
+
+    <main>
+        <h2>Gyroscope</h2>
+        <p class="instruction">
+            Incline et fais pivoter doucement l'appareil.
+        </p>
+        <div class="card small">
+            <h3>Orientation</h3>
+            <p>Alpha: <span id="gyro-a">0</span></p>
+            <p>Beta: <span id="gyro-b">0</span></p>
+            <p>Gamma: <span id="gyro-c">0</span></p>
+        </div>
+        <p id="gyro-status" class="status">
+            Les valeurs changent-elles quand tu bouges l'appareil ?
+        </p>
+        <div class="actions">
+            <button class="btn-yes" id="btn-gyro-ok">Oui, le gyroscope fonctionne</button>
+            <button class="btn-no" id="btn-gyro-ko">Non, problème détecté</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>CYBER DECK DIAG v1.0 — HTML | CSS | JS</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Caméra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="camera">
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <header>
+        <h1>CYBERPUNK HARDWARE TESTER</h1>
+        <p>Test Caméra</p>
+    </header>
+
+    <main>
+        <h2>Caméra</h2>
+        <p class="instruction">
+            Autorise l'accès à la caméra, puis vérifie que l'image est nette et fluide.
+        </p>
+        <div class="card">
+            <h3>Aperçu caméra</h3>
+            <video id="camera-video" autoplay playsinline></video>
+        </div>
+        <p id="camera-status" class="status">
+            En attente d'activation de la caméra…
+        </p>
+        <div class="actions">
+            <button class="btn-primary" id="btn-camera-start">Activer la caméra</button>
+            <button class="btn-yes" id="btn-camera-ok">Oui, la caméra fonctionne</button>
+            <button class="btn-no" id="btn-camera-ko">Non, problème détecté</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>CYBER DECK DIAG v1.0 — HTML | CSS | JS</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

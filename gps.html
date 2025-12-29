@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test GPS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="gps">
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <header>
+        <h1>CYBERPUNK HARDWARE TESTER</h1>
+        <p>Test GPS</p>
+    </header>
+
+    <main>
+        <h2>GPS</h2>
+        <p class="instruction">
+            Autorise l'accès à la localisation et vérifie que les coordonnées apparaissent.
+        </p>
+        <div class="card small">
+            <h3>Position</h3>
+            <p>Lat: <span id="gps-lat">--</span></p>
+            <p>Lon: <span id="gps-lon">--</span></p>
+            <p>Précision: <span id="gps-acc">--</span> m</p>
+        </div>
+        <p id="gps-status" class="status">
+            En attente de localisation…
+        </p>
+        <div class="actions">
+            <button class="btn-primary" id="btn-gps-start">Démarrer le GPS</button>
+            <button class="btn-yes" id="btn-gps-ok">Oui, le GPS fonctionne</button>
+            <button class="btn-no" id="btn-gps-ko">Non, problème détecté</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>CYBER DECK DIAG v1.0 — HTML | CSS | JS</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

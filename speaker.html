@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Haut-parleur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="speaker">
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <header>
+        <h1>CYBERPUNK HARDWARE TESTER</h1>
+        <p>Test Haut-parleur</p>
+    </header>
+
+    <main>
+        <h2>Haut-parleur</h2>
+        <p class="instruction">
+            Utilise le slider pour choisir une fréquence entre 1 Hz et 20000 Hz, puis appuie sur "Jouer".
+        </p>
+        <div class="card">
+            <h3>Générateur sinusoïdal</h3>
+            <label for="freq-range">Fréquence: <span id="freq-label">440</span> Hz</label>
+            <input type="range" id="freq-range" min="1" max="20000" value="440">
+            <div class="actions-inline">
+                <button class="btn-primary" id="btn-tone-play">Jouer</button>
+                <button class="btn-no" id="btn-tone-stop">Arrêter</button>
+            </div>
+        </div>
+        <p id="speaker-status" class="status">
+            Le son sort-il correctement du haut-parleur ?
+        </p>
+        <div class="actions">
+            <button class="btn-yes" id="btn-speaker-ok">Oui, le haut-parleur fonctionne</button>
+            <button class="btn-no" id="btn-speaker-ko">Non, problème détecté</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>CYBER DECK DIAG v1.0 — HTML | CSS | JS</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

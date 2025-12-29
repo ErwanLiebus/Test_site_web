@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyberpunk Hardware Tester</title>
+    <title>Cyberpunk Hardware Tester - Accueil</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="welcome">
     <div class="scanlines"></div>
     <div class="noise"></div>
 
@@ -15,173 +15,30 @@
         <p>Diagnostic capteurs & périphériques</p>
     </header>
 
-    <main id="app">
-        <!-- Écran d'accueil -->
-        <section class="screen active" id="screen-welcome">
-            <h2>Bienvenue</h2>
-            <p class="intro">
-                Cette interface va tester, un par un, les capteurs et périphériques de ton appareil.
-            </p>
-            <ul class="test-list">
-                <li>Accéléromètre</li>
-                <li>Gyroscope</li>
-                <li>Micro</li>
-                <li>Caméra</li>
-                <li>Haut-parleur (1–20000 Hz)</li>
-                <li>GPS</li>
-            </ul>
+    <main>
+        <h2>Bienvenue</h2>
+        <p class="intro">
+            Cette interface va tester, un par un, les capteurs et périphériques de ton appareil.
+        </p>
+        <ul class="test-list">
+            <li>Accéléromètre</li>
+            <li>Gyroscope</li>
+            <li>Micro</li>
+            <li>Caméra</li>
+            <li>Haut-parleur (1–20000 Hz)</li>
+            <li>GPS</li>
+        </ul>
+        <div class="actions">
             <button class="btn-primary" id="btn-start-tests">
                 Démarrer les tests
             </button>
-        </section>
-
-        <!-- Test Accéléromètre -->
-        <section class="screen" id="screen-accel">
-            <h2>Test Accéléromètre</h2>
-            <p class="instruction">
-                Secoue l'appareil de manière nette quand tu es prêt.
-            </p>
-            <div class="card small">
-                <h3>Valeurs brutes</h3>
-                <p>X: <span id="acc-x">0</span></p>
-                <p>Y: <span id="acc-y">0</span></p>
-                <p>Z: <span id="acc-z">0</span></p>
-                <p>Force: <span id="acc-force">0</span> g (approx)</p>
-            </div>
-            <p id="accel-status" class="status">
-                En attente de secousse significative…
-            </p>
-            <div class="actions">
-                <button class="btn-primary" id="btn-accel-retry">Relancer le test</button>
-                <button class="btn-yes" id="btn-accel-ok">Oui, l'accéléromètre fonctionne</button>
-                <button class="btn-no" id="btn-accel-ko">Non, problème détecté</button>
-            </div>
-        </section>
-
-        <!-- Test Gyroscope -->
-        <section class="screen" id="screen-gyro">
-            <h2>Test Gyroscope</h2>
-            <p class="instruction">
-                Incline et fais pivoter doucement l'appareil.
-            </p>
-            <div class="card small">
-                <h3>Orientation</h3>
-                <p>Alpha: <span id="gyro-a">0</span></p>
-                <p>Beta: <span id="gyro-b">0</span></p>
-                <p>Gamma: <span id="gyro-c">0</span></p>
-            </div>
-            <p id="gyro-status" class="status">
-                Les valeurs changent-elles quand tu bouges l'appareil ?
-            </p>
-            <div class="actions">
-                <button class="btn-yes" id="btn-gyro-ok">Oui, le gyroscope fonctionne</button>
-                <button class="btn-no" id="btn-gyro-ko">Non, problème détecté</button>
-            </div>
-        </section>
-
-        <!-- Test Micro -->
-        <section class="screen" id="screen-mic">
-            <h2>Test Micro</h2>
-            <p class="instruction">
-                Autorise l'accès au micro puis parle ou tape sur le téléphone pour voir le niveau sonore bouger.
-            </p>
-            <div class="card">
-                <h3>Niveau sonore</h3>
-                <div class="vu-container">
-                    <div class="vu-bar" id="mic-vu"></div>
-                </div>
-                <p>Niveau: <span id="mic-level">0</span></p>
-            </div>
-            <p id="mic-status" class="status">
-                En attente de signal micro…
-            </p>
-            <div class="actions">
-                <button class="btn-primary" id="btn-mic-start">Activer le micro</button>
-                <button class="btn-yes" id="btn-mic-ok">Oui, le micro fonctionne</button>
-                <button class="btn-no" id="btn-mic-ko">Non, problème détecté</button>
-            </div>
-        </section>
-
-        <!-- Test Caméra -->
-        <section class="screen" id="screen-camera">
-            <h2>Test Caméra</h2>
-            <p class="instruction">
-                Autorise l'accès à la caméra, puis vérifie que l'image est nette et fluide.
-            </p>
-            <div class="card">
-                <h3>Aperçu caméra</h3>
-                <video id="camera-video" autoplay playsinline></video>
-            </div>
-            <p id="camera-status" class="status">
-                En attente d'activation de la caméra…
-            </p>
-            <div class="actions">
-                <button class="btn-primary" id="btn-camera-start">Activer la caméra</button>
-                <button class="btn-yes" id="btn-camera-ok">Oui, la caméra fonctionne</button>
-                <button class="btn-no" id="btn-camera-ko">Non, problème détecté</button>
-            </div>
-        </section>
-
-        <!-- Test Haut-parleur / Générateur -->
-        <section class="screen" id="screen-speaker">
-            <h2>Test Haut-parleur</h2>
-            <p class="instruction">
-                Utilise le slider pour choisir une fréquence entre 1 Hz et 20000 Hz, puis appuie sur "Jouer".
-            </p>
-            <div class="card">
-                <h3>Générateur sinusoïdal</h3>
-                <label for="freq-range">Fréquence: <span id="freq-label">440</span> Hz</label>
-                <input type="range" id="freq-range" min="1" max="20000" value="440">
-                <div class="actions-inline">
-                    <button class="btn-primary" id="btn-tone-play">Jouer</button>
-                    <button class="btn-no" id="btn-tone-stop">Arrêter</button>
-                </div>
-            </div>
-            <p id="speaker-status" class="status">
-                Le son sort-il correctement du haut-parleur ?
-            </p>
-            <div class="actions">
-                <button class="btn-yes" id="btn-speaker-ok">Oui, le haut-parleur fonctionne</button>
-                <button class="btn-no" id="btn-speaker-ko">Non, problème détecté</button>
-            </div>
-        </section>
-
-        <!-- Test GPS -->
-        <section class="screen" id="screen-gps">
-            <h2>Test GPS</h2>
-            <p class="instruction">
-                Autorise l'accès à la localisation et vérifie que les coordonnées apparaissent.
-            </p>
-            <div class="card small">
-                <h3>Position</h3>
-                <p>Lat: <span id="gps-lat">--</span></p>
-                <p>Lon: <span id="gps-lon">--</span></p>
-                <p>Précision: <span id="gps-acc">--</span> m</p>
-            </div>
-            <p id="gps-status" class="status">
-                En attente de localisation…
-            </p>
-            <div class="actions">
-                <button class="btn-primary" id="btn-gps-start">Démarrer le GPS</button>
-                <button class="btn-yes" id="btn-gps-ok">Oui, le GPS fonctionne</button>
-                <button class="btn-no" id="btn-gps-ko">Non, problème détecté</button>
-            </div>
-        </section>
-
-        <!-- Récapitulatif -->
-        <section class="screen" id="screen-summary">
-            <h2>Récapitulatif des tests</h2>
-            <ul id="summary-list" class="summary-list"></ul>
-            <div class="actions">
-                <button class="btn-primary" id="btn-restart">Recommencer les tests</button>
-            </div>
-        </section>
+        </div>
     </main>
 
     <footer>
         <p>CYBER DECK DIAG v1.0 — HTML | CSS | JS</p>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -69,15 +69,7 @@ header p {
 main {
     max-width: 900px;
     margin: 0 auto;
-}
-
-.screen {
-    display: none;
     animation: fade-in 0.25s ease-out;
-}
-
-.screen.active {
-    display: block;
 }
 
 @keyframes fade-in {
@@ -99,9 +91,15 @@ h3 {
     color: #ffb3ff;
 }
 
-.intro {
+.intro,
+.instruction,
+.status {
     font-size: 0.85rem;
     margin-bottom: 10px;
+}
+
+.status {
+    color: #8be9ff;
 }
 
 .test-list {
@@ -140,17 +138,6 @@ h3 {
     background: radial-gradient(circle at top left, rgba(0, 255, 204, 0.25), transparent 45%);
     opacity: 0.25;
     mix-blend-mode: screen;
-}
-
-.status {
-    font-size: 0.8rem;
-    margin: 8px 0;
-    color: #8be9ff;
-}
-
-.instruction {
-    font-size: 0.85rem;
-    margin-bottom: 10px;
 }
 
 .actions {
