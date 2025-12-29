@@ -53,7 +53,7 @@ header {
 }
 
 header h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #ff4df3;
@@ -71,16 +71,48 @@ main {
     margin: 0 auto;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
+.screen {
+    display: none;
+    animation: fade-in 0.25s ease-out;
 }
 
-@media (min-width: 600px) {
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
+.screen.active {
+    display: block;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-size: 1rem;
+    color: #00ffcc;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+h3 {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: #ffb3ff;
+}
+
+.intro {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.test-list {
+    list-style: none;
+    margin-bottom: 14px;
+    font-size: 0.8rem;
+}
+
+.test-list li::before {
+    content: "▹ ";
+    color: #ff4df3;
 }
 
 .card {
@@ -94,6 +126,11 @@ main {
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.card.small p {
+    font-size: 0.8rem;
 }
 
 .card::before {
@@ -105,121 +142,147 @@ main {
     mix-blend-mode: screen;
 }
 
-.card h2 {
-    font-size: 0.95rem;
-    color: #00ffcc;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-}
-
-.values p {
+.status {
     font-size: 0.8rem;
-    margin-bottom: 2px;
+    margin: 8px 0;
+    color: #8be9ff;
 }
 
-.values span {
-    color: #ffb3ff;
-    font-weight: bold;
+.instruction {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
 }
 
-.values.small p {
-    font-size: 0.75rem;
-}
-
-.battery-bar {
-    width: 100%;
-    height: 10px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    overflow: hidden;
-    margin-top: 8px;
-    border: 1px solid rgba(0, 255, 204, 0.5);
-}
-
-.battery-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #ff4df3, #00ffcc);
-    box-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
-    transition: width 0.3s ease-out;
-}
-
-/* Boussole */
-.compass {
-    margin-top: 8px;
-    display: flex;
-    justify-content: center;
-}
-
-.compass-ring {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid rgba(0, 255, 204, 0.6);
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.compass-arrow {
-    width: 4px;
-    height: 30px;
-    background: linear-gradient(to top, #ff4df3, #ffe066);
-    border-radius: 999px;
-    box-shadow: 0 0 10px rgba(255, 77, 243, 0.8);
-    transform-origin: bottom center;
-    transform: rotate(0deg);
-}
-
-/* Bouton */
-button#start-sensors {
+.actions {
     margin-top: 10px;
-    width: 100%;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.actions-inline {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+/* Boutons */
+button {
     border-radius: 999px;
-    border: 1px solid #ff4df3;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-primary {
     background: radial-gradient(circle at top, #ff4df3, #7200b8);
     color: #fff;
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    border: 1px solid #ff4df3;
     box-shadow:
         0 0 10px rgba(255, 77, 243, 0.8),
         0 0 25px rgba(114, 0, 184, 0.8);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
 }
 
-/* Animation de rebond très visible */
+.btn-yes {
+    background: radial-gradient(circle at top, #00ffcc, #007f66);
+    color: #001010;
+    border: 1px solid #00ffcc;
+    box-shadow:
+        0 0 10px rgba(0, 255, 204, 0.8),
+        0 0 25px rgba(0, 180, 140, 0.8);
+}
+
+.btn-no {
+    background: radial-gradient(circle at top, #ff5555, #7f0000);
+    color: #fff0f0;
+    border: 1px solid #ff5555;
+    box-shadow:
+        0 0 10px rgba(255, 85, 85, 0.8),
+        0 0 25px rgba(127, 0, 0, 0.8);
+}
+
+/* Effet rebond bouton */
+button:active {
+    animation: cyber-bounce 0.25s ease-out;
+}
+
 @keyframes cyber-bounce {
-    0% {
-        transform: scale(1);
-        box-shadow:
-            0 0 10px rgba(255, 77, 243, 0.8),
-            0 0 25px rgba(114, 0, 184, 0.8);
-    }
-    30% {
-        transform: scale(0.9);
-        box-shadow:
-            0 0 5px rgba(255, 77, 243, 1),
-            0 0 20px rgba(114, 0, 184, 1);
-    }
-    70% {
-        transform: scale(1.08);
-        box-shadow:
-            0 0 18px rgba(255, 255, 255, 1),
-            0 0 40px rgba(114, 0, 184, 1);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow:
-            0 0 10px rgba(255, 77, 243, 0.8),
-            0 0 25px rgba(114, 0, 184, 0.8);
-    }
+    0%   { transform: scale(1); }
+    30%  { transform: scale(0.9); }
+    70%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* VU meter mic */
+.vu-container {
+    width: 100%;
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 204, 0.5);
+    margin-top: 6px;
+}
+
+.vu-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00ffcc, #ff4df3);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+    transition: width 0.1s linear;
+}
+
+/* Video caméra */
+video#camera-video {
+    width: 100%;
+    border-radius: 8px;
+    background: #000;
+}
+
+/* Slider fréquence */
+#freq-range {
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* Récap */
+.summary-list {
+    list-style: none;
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+
+.summary-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.summary-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+.summary-ok {
+    background: #00ffcc;
+    color: #001010;
+    box-shadow: 0 0 8px rgba(0, 255, 204, 0.7);
+}
+
+.summary-ko {
+    background: #ff5555;
+    color: #fff0f0;
+    box-shadow: 0 0 8px rgba(255, 85, 85, 0.7);
 }
 
 footer {
