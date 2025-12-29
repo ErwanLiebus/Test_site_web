@@ -1,1 +1,86 @@
-<h1>Mon site fonctionne</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Sensor Deck</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <header>
+        <h1>CYBERPUNK SENSOR DECK</h1>
+        <p>Device: <span id="device-name">Android</span></p>
+    </header>
+
+    <main>
+        <section class="grid">
+            <div class="card">
+                <h2>Accéléromètre</h2>
+                <div class="values">
+                    <p>X: <span id="acc-x">0</span></p>
+                    <p>Y: <span id="acc-y">0</span></p>
+                    <p>Z: <span id="acc-z">0</span></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Gyroscope</h2>
+                <div class="values">
+                    <p>Alpha: <span id="gyro-a">0</span></p>
+                    <p>Beta: <span id="gyro-b">0</span></p>
+                    <p>Gamma: <span id="gyro-c">0</span></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Orientation</h2>
+                <div class="values">
+                    <p>Direction: <span id="ori">0</span>°</p>
+                </div>
+                <div class="compass">
+                    <div class="compass-ring">
+                        <div class="compass-arrow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Batterie</h2>
+                <div class="values">
+                    <p>Niveau: <span id="bat-level">--</span>%</p>
+                    <p>État: <span id="bat-charging">?</span></p>
+                </div>
+                <div class="battery-bar">
+                    <div class="battery-fill" id="bat-bar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>GPS</h2>
+                <div class="values">
+                    <p>Lat: <span id="lat">--</span></p>
+                    <p>Lon: <span id="lon">--</span></p>
+                    <p>Précision: <span id="acc">--</span> m</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Statut</h2>
+                <div class="values small">
+                    <p id="status-log">En attente des capteurs…</p>
+                </div>
+                <button id="start-sensors">Activer les capteurs</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>CYBER DECK v1.0 — JS | HTML | CSS</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
